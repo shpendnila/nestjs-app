@@ -5,7 +5,7 @@ metadata:
   labels:
     app: nest-postgres
 spec:
-  clusterIP: "10.76.11.96"
+  type: ClusterIP
   ports:
    - port: 5432
   selector:
