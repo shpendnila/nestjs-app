@@ -5,5 +5,5 @@ metadata:
   labels:
     app: nest-postgres
 data:
-  DATABASE_HOST: ""
+  DATABASE_HOST: "10.76.11.96"
   DATABASE_PORT: 5432
