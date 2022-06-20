@@ -14,7 +14,33 @@ spec:
       - image: gcr.io/rubik-web-app-1540579753013/nestjs-app
         ports:
         - containerPort: 3000
+        env:
+          - name: DATABASE_SCHEMA
+            valueFrom:
+              secretKeyRef:
+                key: POSTGRES_DB
+                name: nest-postgres-secret
+          - name: DATABASE_USER
+            valueFrom:
+              secretKeyRef:
+                key: POSTGRES_USER
+                name: nest-postgres-secret
+          - name: DATABASE_PASS
+            valueFrom:
+              secretKeyRef:
+                key: POSTGRES_PASSWORD
+                name: nest-postgres-secret
+          - name: DATABASE_HOST
+            valueFrom:
+              configMapKeyRef:
+                key: DATABASE_HOST
+                name: nest-postgres-config
+          - name: DATABASE_PORT
+            valueFrom:
+              configMapKeyRef:
+                key: DATABASE_PORT
+                name: nest-postgres-config
         resources:
           limits:
-            memory: 256Mi
-            cpu: 100m
+            memory: 500Mi
+            cpu: 500m

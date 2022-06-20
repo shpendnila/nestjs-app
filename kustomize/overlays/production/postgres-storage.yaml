@@ -1,0 +1,28 @@
+kind: PersistentVolume
+apiVersion: v1
+metadata:
+  name: nest-postgres-volume
+  labels:
+    app: nest-postgres
+spec:
+  storageClassName: standard
+  capacity:
+    storage: 5Gi
+  accessModes:
+    - ReadWriteMany
+  hostPath:
+    path: "/var/lib/data"
+---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: nest-postgres-claim
+  labels:
+    app: nest-postgres
+spec:
+  storageClassName: standard
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 5Gi
