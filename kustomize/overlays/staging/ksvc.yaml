@@ -43,4 +43,4 @@ spec:
         resources:
           limits:
             memory: 256Mi
-            cpu: 100m
+            cpu: 256m
