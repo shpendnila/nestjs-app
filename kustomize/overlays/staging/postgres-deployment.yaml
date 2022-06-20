@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nest-postgres
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nest-postgres
+  template:
+    metadata:
+      labels:
+        app: nest-postgres
+    spec:
+      containers:
+        - name: postgres
+          image: postgres:10.1
+          imagePullPolicy: "IfNotPresent"
+          ports:
+            - containerPort: 5432
+          envFrom:
+            - secretRef:
+                name: nest-postgres-secret
+            - configMapRef:
+                name: nest-postgres-config

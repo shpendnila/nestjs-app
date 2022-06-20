@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: nest-postgres
+  labels:
+    app: nest-postgres
+spec:
+  type: ClusterIP
+  ports:
+   - port: 5432
+  selector:
+   app: nest-postgres
