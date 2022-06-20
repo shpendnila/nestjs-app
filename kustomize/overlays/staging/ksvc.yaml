@@ -42,5 +42,5 @@ spec:
                 name: nest-postgres-config
         resources:
           limits:
-            memory: 256Mi
-            cpu: 256m
+            memory: 400Mi
+            cpu: 500m
