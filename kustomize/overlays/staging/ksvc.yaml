@@ -35,7 +35,7 @@ spec:
               configMapKeyRef:
                 key: DATABASE_HOST
                 name: nest-postgres-config
-          - name: DATABASE_HOST
+          - name: DATABASE_PORT
             valueFrom:
               configMapKeyRef:
                 key: DATABASE_PORT
